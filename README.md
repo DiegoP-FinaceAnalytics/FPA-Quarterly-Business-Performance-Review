@@ -262,22 +262,20 @@ Potential improvements include:
 - Automated data quality monitoring
 
 ---
-
-# 👤 Author
+## 👤 Author
 
 **Diego P.**
 
 Finance Major | Business Analytics Minor
 
-**Career Interests**
+**Core Skills**
 
 - Financial Planning & Analysis (FP&A)
 - Financial Analytics
-- Business Intelligence
 - SQL
 - Power BI
+- Business Intelligence
 - Data Analytics
-
 
 ---
 
