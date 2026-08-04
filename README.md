@@ -2,7 +2,7 @@
 
 > **An end-to-end Financial Planning & Analysis (FP&A) project demonstrating SQL Server, dimensional modeling, DAX, and Power BI through a realistic executive reporting scenario.**
 
-![Executive Overview](Screenshots/Executive_Overview.png)
+![Executive Overview](Screenshots/01_Executive_Overview.png)
 
 ---
 
@@ -12,18 +12,18 @@ This project simulates a year-end **Financial Planning & Analysis (FP&A) Quarter
 
 Following the close of **Fiscal Year 2025 (Q4 2025)**, executive leadership requested a comprehensive financial review to evaluate business performance, measure results against budget and forecast, assess working capital, and identify strategic priorities before finalizing the **FY2026 operating plan**.
 
-Rather than focusing only on dashboard development, this project demonstrates the complete analytics lifecycle—from raw financial data to executive decision-making.
+Rather than focusing only on dashboard development, this project demonstrates the complete analytics lifecycle—from raw financial data to executive decision-making using SQL Server and Power BI.
 
 ---
 
 # 🎯 Business Objectives
 
-- Evaluate Actual vs Budget performance
-- Identify favorable and unfavorable variances
-- Analyze departmental financial performance
-- Assess Accounts Payable and Accounts Receivable activity
-- Evaluate working capital trends
-- Support executive decision-making for FY2026 planning
+- Evaluate Actual vs Budget performance.
+- Identify favorable and unfavorable budget variances.
+- Analyze departmental financial performance.
+- Assess Accounts Payable and Accounts Receivable activity.
+- Evaluate working capital trends.
+- Support executive decision-making for FY2026 planning.
 
 ---
 
@@ -64,7 +64,9 @@ FPA-Quarterly-Business-Performance-Review
 ├── PowerBI
 ├── Reports
 ├── Screenshots
-└── SQL
+├── SQL
+├── README.md
+└── LICENSE
 ```
 
 ---
@@ -117,7 +119,7 @@ The reporting environment is built on a **dimensional star schema** consisting o
 - **4 Fact Tables**
 - **9 Dimension Tables**
 
-The model was designed to support scalable financial reporting, time intelligence, and executive analytics.
+The warehouse was designed to support scalable financial reporting, time intelligence, and executive analytics.
 
 ![Star Schema](Screenshots/Star_Schema.png)
 
@@ -125,51 +127,51 @@ The model was designed to support scalable financial reporting, time intelligenc
 
 # 📊 Dashboard Overview
 
-The Power BI report is organized into five analytical pages.
+The Power BI report consists of **five interactive pages**, each designed to answer a specific business question.
 
-## 1. Executive Overview
+## 1️⃣ Executive Overview
 
-![Executive Overview](Screenshots/Executive_Overview.png)
+![Executive Overview](Screenshots/01_Executive_Overview.png)
 
-Provides a high-level summary of financial performance, budget variance, forecast variance, and departmental results.
-
----
-
-## 2. Department Performance & Variance Analysis
-
-![Department Performance](Screenshots/Department_Performance.png)
-
-Analyzes departmental performance, budget variances, and forecast comparisons.
+Provides a high-level summary of actual performance, budget performance, forecast variance, quarterly trends, and departmental comparisons.
 
 ---
 
-## 3. Working Capital & Cash Flow Outlook
+## 2️⃣ Working Capital & Cash Flow Outlook
 
-![Working Capital](Screenshots/Working_Capital.png)
+![Working Capital](Screenshots/02_Working_Capital_Cash_Flow.png)
 
-Evaluates Accounts Receivable, Accounts Payable, aging buckets, and working capital trends.
-
----
-
-## 4. Financial Transaction Analysis
-
-![Financial Transactions](Screenshots/Financial_Transaction_Analysis.png)
-
-Examines General Ledger activity, account trends, and transaction-level insights.
+Evaluates Accounts Receivable, Accounts Payable, aging buckets, overdue balances, and short-term working capital performance.
 
 ---
 
-## 5. Executive Outlook & Recommendations
+## 3️⃣ Department Performance & Variance Analysis
 
-![Executive Outlook](Screenshots/Executive_Outlook.png)
+![Department Performance](Screenshots/03_Department_Performance_Variance.png)
 
-Summarizes key findings, business risks, and management recommendations.
+Analyzes departmental budget performance, forecast comparisons, and identifies favorable and unfavorable variances.
+
+---
+
+## 4️⃣ Financial Transaction Analysis
+
+![Financial Transaction Analysis](Screenshots/04_Financial_Transaction_Analysis.png)
+
+Examines General Ledger activity, account trends, transaction patterns, and operational financial activity.
+
+---
+
+## 5️⃣ Executive Outlook & Recommendations
+
+![Executive Outlook](Screenshots/05_Executive_Outlook_Recommendations.png)
+
+Summarizes key findings, business risks, and management recommendations to support FY2026 planning.
 
 ---
 
 # 📈 Key Business Insights
 
-- Marketing achieved the strongest favorable budget variance.
+- Marketing delivered the strongest favorable budget variance.
 - Finance and IT recorded the largest unfavorable budget variances.
 - Forecast accuracy remained above **98%** throughout FY2025.
 - Working capital analysis identified a significant concentration of overdue receivables.
@@ -183,7 +185,15 @@ Summarizes key findings, business risks, and management recommendations.
 - Prioritize collection of overdue customer receivables.
 - Continue monitoring departmental spending against budget.
 - Review unusual General Ledger activity before FY2026 planning.
-- Maintain quarterly forecast reviews to support financial planning accuracy.
+- Maintain quarterly forecast reviews to support planning accuracy.
+
+---
+
+# 🔗 Power BI Data Model
+
+The Power BI semantic model uses one-to-many relationships between fact and dimension tables, enabling efficient filtering and interactive financial analysis.
+
+![Power BI Model](Screenshots/Model_View.png)
 
 ---
 
@@ -221,22 +231,22 @@ Summarizes key findings, business risks, and management recommendations.
 
 # 📚 Documentation
 
-Supporting documentation included in this repository:
+This repository also includes:
 
 - 📄 Data Dictionary
 - 📄 ETL Workflow
-- ⭐ Star Schema
+- ⭐ Star Schema Diagram
 - 📑 Executive Report
 
 ---
 
 # 🚀 How to Explore This Project
 
-1. Read this README for an overview of the project.
+1. Read this README for the project overview.
 2. Review the dashboard screenshots.
-3. Explore the SQL workflow and data warehouse.
-4. Open the supporting documentation.
-5. Review the Power BI project.
+3. Explore the SQL scripts and warehouse design.
+4. Review the supporting documentation.
+5. Open the Power BI project.
 6. Read the Executive Report for the final business recommendations.
 
 ---
@@ -252,7 +262,7 @@ Supporting documentation included in this repository:
 
 # 🔮 Future Enhancements
 
-Potential improvements include:
+Potential future improvements include:
 
 - Automated ETL pipelines
 - Power BI Service deployment
@@ -262,13 +272,14 @@ Potential improvements include:
 - Automated data quality monitoring
 
 ---
-## 👤 Author
+
+# 👤 Author
 
 **Diego P.**
 
 Finance Major | Business Analytics Minor
 
-**Core Skills**
+### Core Skills
 
 - Financial Planning & Analysis (FP&A)
 - Financial Analytics
