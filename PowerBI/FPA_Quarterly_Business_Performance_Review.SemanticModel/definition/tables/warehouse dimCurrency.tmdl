@@ -1,0 +1,32 @@
+table 'warehouse dimCurrency'
+	lineageTag: 81c44910-0473-4bdf-a5ff-9f48a6b8f826
+
+	column CurrencyKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: f862d487-16a2-42be-a56e-baf202cba2ba
+		summarizeBy: none
+		sourceColumn: CurrencyKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrencyCode
+		dataType: string
+		lineageTag: 84a428c3-1c97-4b1a-977a-6fbc19aaa98d
+		summarizeBy: none
+		sourceColumn: CurrencyCode
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'warehouse dimCurrency' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost", "Northstar_FPnA"),
+				    warehouse_dimCurrency = Source{[Schema="warehouse",Item="dimCurrency"]}[Data]
+				in
+				    warehouse_dimCurrency
+

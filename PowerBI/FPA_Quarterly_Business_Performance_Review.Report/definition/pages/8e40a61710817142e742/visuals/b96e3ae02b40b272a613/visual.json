@@ -1,0 +1,453 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "b96e3ae02b40b272a613",
+  "position": {
+    "x": 650.5469309768331,
+    "y": 479.35037019345594,
+    "z": 13000,
+    "height": 215.21853355624552,
+    "width": 611.41628851206121,
+    "tabOrder": 13000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "warehouse factGeneralLedger"
+                    }
+                  },
+                  "Property": "GL Transaction Date"
+                }
+              },
+              "queryRef": "warehouse factGeneralLedger.GL Transaction Date",
+              "nativeQueryRef": "Date",
+              "displayName": "Date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "warehouse factGeneralLedger"
+                    }
+                  },
+                  "Property": "GLID"
+                }
+              },
+              "queryRef": "warehouse factGeneralLedger.GLID",
+              "nativeQueryRef": "GLID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "warehouse dimAccount"
+                    }
+                  },
+                  "Property": "AccountName"
+                }
+              },
+              "queryRef": "warehouse dimAccount.AccountName",
+              "nativeQueryRef": "Account",
+              "displayName": "Account"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "warehouse dimDepartment"
+                    }
+                  },
+                  "Property": "DepartmentName"
+                }
+              },
+              "queryRef": "warehouse dimDepartment.DepartmentName",
+              "nativeQueryRef": "Department",
+              "displayName": "Department"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "warehouse factGeneralLedger"
+                        }
+                      },
+                      "Property": "Debit"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(warehouse factGeneralLedger.Debit)",
+              "nativeQueryRef": "Debit",
+              "displayName": "Debit"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "warehouse factGeneralLedger"
+                        }
+                      },
+                      "Property": "Credit"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(warehouse factGeneralLedger.Credit)",
+              "nativeQueryRef": "Credit",
+              "displayName": "Credit"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FP&A Measures"
+                    }
+                  },
+                  "Property": "GL Net Amount"
+                }
+              },
+              "queryRef": "Financial_Measures.GL Net Amount",
+              "nativeQueryRef": "GL Net Amount"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontColorPrimary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "fontColorSecondary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "86.65441557960881D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "warehouse dimDepartment.DepartmentName"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "65.24520396646514D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(warehouse factGeneralLedger.Credit)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "74.89133030809649D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "warehouse factGeneralLedger.GLID"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "120.45114356969452D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Financial_Measures.GL Net Amount"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "75.77716743779196D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "warehouse factGeneralLedger.GL Transaction Date"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "102.55433484595176D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "warehouse dimAccount.AccountName"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Material GL Transactions'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI Bold'', wf_segoe-ui_bold, helvetica, arial, sans-serif'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "preset": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Custom'"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.3
+                    }
+                  }
+                }
+              }
+            },
+            "angle": {
+              "expr": {
+                "Literal": {
+                  "Value": "90D"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "60D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "abbd0d7e6c5856b46ebd",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FP&A Measures"
+              }
+            },
+            "Property": "GL Net Amount"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "f",
+              "Entity": "FP&A Measures",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Or": {
+                  "Left": {
+                    "Comparison": {
+                      "ComparisonKind": 1,
+                      "Left": {
+                        "Measure": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "f"
+                            }
+                          },
+                          "Property": "GL Net Amount"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "1900L"
+                        }
+                      }
+                    }
+                  },
+                  "Right": {
+                    "Comparison": {
+                      "ComparisonKind": 3,
+                      "Left": {
+                        "Measure": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "f"
+                            }
+                          },
+                          "Property": "GL Net Amount"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "-4900L"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

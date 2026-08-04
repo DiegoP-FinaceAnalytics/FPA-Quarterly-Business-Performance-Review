@@ -1,0 +1,145 @@
+table 'warehouse factAccountsReceivable'
+	lineageTag: 6cc6377e-3f69-41f1-aa6d-c6af43e96095
+
+	column FactARKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 6f8acf75-aad6-4c4b-af8d-359672ebbd62
+		summarizeBy: count
+		sourceColumn: FactARKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ARID
+		dataType: string
+		lineageTag: 45cdc719-96ac-4d04-86d0-3075e5b75ee7
+		summarizeBy: none
+		sourceColumn: ARID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 96719fac-0da7-400d-9989-a0cbd1476a44
+		summarizeBy: none
+		sourceColumn: CustomerKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column InvoiceDateKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: f07fc0f6-cac7-4890-92c2-4bb1c3f50040
+		summarizeBy: count
+		sourceColumn: InvoiceDateKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DueDateKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 46786e9d-abb8-4bf5-8062-780fc51e40c2
+		summarizeBy: count
+		sourceColumn: DueDateKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReceivedDateKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 48ca02ae-852d-4db1-a9c2-3deaefa704ce
+		summarizeBy: count
+		sourceColumn: ReceivedDateKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrencyKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 0179e2c4-89b8-4f54-9c96-fe70b40249e3
+		summarizeBy: none
+		sourceColumn: CurrencyKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column StatusKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 72cb7216-0ad7-4b7e-bc41-ed378e575827
+		summarizeBy: none
+		sourceColumn: StatusKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TermsKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 386638d7-f45b-4d81-8288-f994d47e6f8c
+		summarizeBy: none
+		sourceColumn: TermsKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Amount
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 5d9f83f0-aadb-48bb-aa0f-660414bc5f56
+		summarizeBy: sum
+		sourceColumn: Amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'AR Due Date' =
+			
+			VAR DateKey =
+			    'warehouse factAccountsReceivable'[DueDateKey]
+			RETURN
+			    DATE(
+			        INT(DateKey / 10000),
+			        INT(
+			            MOD(DateKey, 10000) / 100
+			        ),
+			        MOD(DateKey, 100)
+			    )
+		formatString: Short Date
+		lineageTag: db6378ec-238e-454f-8161-2d2f9f3ed543
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'warehouse factAccountsReceivable' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost", "Northstar_FPnA"),
+				    warehouse_factAccountsReceivable = Source{[Schema="warehouse",Item="factAccountsReceivable"]}[Data]
+				in
+				    warehouse_factAccountsReceivable
+

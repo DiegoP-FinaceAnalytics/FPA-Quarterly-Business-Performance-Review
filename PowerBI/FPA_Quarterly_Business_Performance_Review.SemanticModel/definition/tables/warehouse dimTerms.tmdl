@@ -1,0 +1,32 @@
+table 'warehouse dimTerms'
+	lineageTag: bc759cf3-5d45-40ff-b051-2f13f50f7dbd
+
+	column TermsKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 24297f62-7d49-4940-aeef-0dc141076b82
+		summarizeBy: none
+		sourceColumn: TermsKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TermsName
+		dataType: string
+		lineageTag: 046738a9-15c9-4c19-840c-6015d5d45cb0
+		summarizeBy: none
+		sourceColumn: TermsName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'warehouse dimTerms' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost", "Northstar_FPnA"),
+				    warehouse_dimTerms = Source{[Schema="warehouse",Item="dimTerms"]}[Data]
+				in
+				    warehouse_dimTerms
+

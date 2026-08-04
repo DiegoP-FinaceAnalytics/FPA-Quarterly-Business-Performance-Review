@@ -1,0 +1,217 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 892.00002034505212,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 217.81824318560587,
+            "y": 156.56029766299184
+          },
+          "nodeIndex": "warehouse dimAccount",
+          "nodeLineageTag": "b1620b17-716f-498e-b40d-59353b9bf25b",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 490.6119138146978,
+            "y": 0
+          },
+          "nodeIndex": "warehouse dimCostCenter",
+          "nodeLineageTag": "2c24c0d7-7aa7-42fe-a0b8-88f467944c98",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 210.24503358381821,
+            "y": 321.21992307616836
+          },
+          "nodeIndex": "warehouse dimCurrency",
+          "nodeLineageTag": "81c44910-0473-4bdf-a5ff-9f48a6b8f826",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 475.78872280558403,
+            "y": 492.95223183647818
+          },
+          "nodeIndex": "warehouse dimCustomer",
+          "nodeLineageTag": "ede7f94d-7aaf-4b55-bda3-2f33ca078fd1",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 489.86262246018418,
+            "y": 157.39933404683745
+          },
+          "nodeIndex": "warehouse dimDate",
+          "nodeLineageTag": "29b71cf7-e10d-46b1-8db4-8c01843f2b0f",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 14
+        },
+        {
+          "location": {
+            "x": 206.37687339434552,
+            "y": 0
+          },
+          "nodeIndex": "warehouse dimDepartment",
+          "nodeLineageTag": "77ded43e-0c72-4ba0-9533-49d5bd7fc9a3",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 206.94239422887438,
+            "y": 651.38167084955774
+          },
+          "nodeIndex": "warehouse dimStatus",
+          "nodeLineageTag": "bb39ca9f-0d53-436c-9cd2-9db2527fcae3",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 478.38387167189148,
+            "y": 658
+          },
+          "nodeIndex": "warehouse dimTerms",
+          "nodeLineageTag": "bc759cf3-5d45-40ff-b051-2f13f50f7dbd",
+          "size": {
+            "height": 137.10916021271089,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 225.35139201765651,
+            "y": 492.00000000000006
+          },
+          "nodeIndex": "warehouse dimVendor",
+          "nodeLineageTag": "acc31750-12e7-468c-bcfe-6bbf8256e0cc",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 1510.7269926649356,
+            "y": 187.15990593507232
+          },
+          "nodeIndex": "warehouse factAccountsPayable",
+          "nodeLineageTag": "f8e5e710-51cc-4403-a70a-fe4cfcaf6e43",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 1118.9360461103015,
+            "y": 533.39456759861685
+          },
+          "nodeIndex": "warehouse factAccountsReceivable",
+          "nodeLineageTag": "6cc6377e-3f69-41f1-aa6d-c6af43e96095",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 1434,
+            "y": 535.150469924663
+          },
+          "nodeIndex": "warehouse factBudgetForecast",
+          "nodeLineageTag": "94129ff3-b058-4948-8ba2-70529617a334",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 1220.6985991198228,
+            "y": 164.49740929929769
+          },
+          "nodeIndex": "warehouse factGeneralLedger",
+          "nodeLineageTag": "18008b6b-1b71-4987-b640-8cb52fa2b8d8",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 12
+        },
+        {
+          "location": {
+            "x": 1913.35011927059,
+            "y": 0
+          },
+          "nodeIndex": "AR Aging Buckets",
+          "nodeLineageTag": "2dd454fe-e117-4ba7-9a0b-055f0d4afb55",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1670.0167859372571,
+            "y": 0
+          },
+          "nodeIndex": "FP&A Measures",
+          "nodeLineageTag": "c7b06f4f-78e5-44b9-93cc-cd6457a01776",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 60,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

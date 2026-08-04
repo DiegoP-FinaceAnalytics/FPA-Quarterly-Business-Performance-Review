@@ -1,0 +1,33 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["warehouse dimAccount","warehouse dimCostCenter","warehouse dimCurrency","warehouse dimCustomer","warehouse dimDate","warehouse dimDepartment","warehouse dimStatus","warehouse dimVendor","warehouse dimTerms","warehouse factAccountsPayable","warehouse factAccountsReceivable","warehouse factBudgetForecast","warehouse factGeneralLedger","Measures ","FP&A Measures"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table 'warehouse dimAccount'
+ref table 'warehouse dimCostCenter'
+ref table 'warehouse dimCurrency'
+ref table 'warehouse dimCustomer'
+ref table 'warehouse dimDate'
+ref table 'warehouse dimDepartment'
+ref table 'warehouse dimStatus'
+ref table 'warehouse dimVendor'
+ref table 'warehouse dimTerms'
+ref table 'warehouse factAccountsPayable'
+ref table 'warehouse factAccountsReceivable'
+ref table 'warehouse factBudgetForecast'
+ref table 'warehouse factGeneralLedger'
+ref table 'FP&A Measures'
+ref table 'AR Aging Buckets'
+
+ref cultureInfo en-US
+

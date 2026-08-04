@@ -1,0 +1,60 @@
+relationship AutoDetected_4b52fb06-70a3-4058-b84c-2f15e9289f9d
+	fromColumn: 'warehouse factGeneralLedger'.AccountKey
+	toColumn: 'warehouse dimAccount'.AccountKey
+
+relationship AutoDetected_b33c1495-ae0e-4d5a-b471-0639d1aeadae
+	fromColumn: 'warehouse factGeneralLedger'.CostCenterKey
+	toColumn: 'warehouse dimCostCenter'.CostCenterKey
+
+relationship AutoDetected_cba09d9f-5c2e-452a-a325-216dd371a80a
+	fromColumn: 'warehouse factAccountsPayable'.CurrencyKey
+	toColumn: 'warehouse dimCurrency'.CurrencyKey
+
+relationship AutoDetected_b96ee885-2997-49f4-a543-532dd33bc748
+	fromColumn: 'warehouse factAccountsReceivable'.CurrencyKey
+	toColumn: 'warehouse dimCurrency'.CurrencyKey
+
+relationship AutoDetected_38e48736-80de-493d-8e6b-1c85cf098fbe
+	fromColumn: 'warehouse factGeneralLedger'.CurrencyKey
+	toColumn: 'warehouse dimCurrency'.CurrencyKey
+
+relationship AutoDetected_7121210f-9648-4720-bc08-1b6ea8c5dca5
+	fromColumn: 'warehouse factAccountsReceivable'.CustomerKey
+	toColumn: 'warehouse dimCustomer'.CustomerKey
+
+relationship AutoDetected_4ca97938-8f41-44d5-9f44-70c2b6da6ddf
+	fromColumn: 'warehouse factBudgetForecast'.DateKey
+	toColumn: 'warehouse dimDate'.DateKey
+
+relationship AutoDetected_b87bea6b-ab60-451e-acf4-b86504f7fe85
+	fromColumn: 'warehouse factGeneralLedger'.DateKey
+	toColumn: 'warehouse dimDate'.DateKey
+
+relationship AutoDetected_af8c8600-d7a3-4d1d-919b-5d8d08fd06c2
+	fromColumn: 'warehouse factBudgetForecast'.DepartmentKey
+	toColumn: 'warehouse dimDepartment'.DepartmentKey
+
+relationship AutoDetected_c71cda9c-4414-40dc-acb4-89a5c710cb39
+	fromColumn: 'warehouse factGeneralLedger'.DepartmentKey
+	toColumn: 'warehouse dimDepartment'.DepartmentKey
+
+relationship AutoDetected_a8b6b927-d86e-4864-a2e2-12eb9a1db4d3
+	fromColumn: 'warehouse factAccountsPayable'.StatusKey
+	toColumn: 'warehouse dimStatus'.StatusKey
+
+relationship AutoDetected_65d57063-4904-4565-8fe8-31fbad82d73b
+	fromColumn: 'warehouse factAccountsReceivable'.StatusKey
+	toColumn: 'warehouse dimStatus'.StatusKey
+
+relationship AutoDetected_c751360f-4b06-4908-b7e9-a7e41695a643
+	fromColumn: 'warehouse factAccountsPayable'.VendorKey
+	toColumn: 'warehouse dimVendor'.VendorKey
+
+relationship AutoDetected_d99a7d11-b8b4-4145-947f-534cfc80a48c
+	fromColumn: 'warehouse factAccountsPayable'.TermsKey
+	toColumn: 'warehouse dimTerms'.TermsKey
+
+relationship AutoDetected_deb86687-66e0-4f09-821d-1d5f06db1451
+	fromColumn: 'warehouse factAccountsReceivable'.TermsKey
+	toColumn: 'warehouse dimTerms'.TermsKey
+

@@ -1,0 +1,40 @@
+table 'warehouse dimAccount'
+	lineageTag: b1620b17-716f-498e-b40d-59353b9bf25b
+
+	column AccountKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: e5e888ff-8f51-4c92-b9f7-b9b6d81f9105
+		summarizeBy: none
+		sourceColumn: AccountKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountNumber
+		dataType: string
+		lineageTag: 6ea0e0ce-1d46-4250-8195-4837547f62e4
+		summarizeBy: none
+		sourceColumn: AccountNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountName
+		dataType: string
+		lineageTag: 9462c88b-3b9f-4eaf-9bb5-0a2b96b240f0
+		summarizeBy: none
+		sourceColumn: AccountName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'warehouse dimAccount' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost", "Northstar_FPnA"),
+				    warehouse_dimAccount = Source{[Schema="warehouse",Item="dimAccount"]}[Data]
+				in
+				    warehouse_dimAccount
+

@@ -1,0 +1,599 @@
+table 'FP&A Measures'
+	lineageTag: c7b06f4f-78e5-44b9-93cc-cd6457a01776
+
+	measure 'Total Actual' = SUM('warehouse factBudgetForecast'[ActualUSD])
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Actuals
+		lineageTag: d1138b5d-92ad-4a8f-a2f1-807d5d70c467
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Total Budget' = SUM('warehouse factBudgetForecast'[BudgetUSD])
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Budget
+		lineageTag: c999fe6a-0374-4014-a3b9-6c9c6a15c660
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Total Forecast' = SUM('warehouse factBudgetForecast'[ForecastUSD])
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Forecast
+		lineageTag: c8e7d244-48b1-44da-aa5b-e5eb9159a0d8
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Budget Variance' =
+			
+			[Total Actual] - [Total Budget]
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Budget
+		lineageTag: 8478fd4e-6515-40da-aaf0-11c236d76649
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Budget Variance %' = DIVIDE([Budget Variance],[Total Budget],0)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Budget
+		lineageTag: e3e54e3e-3ba9-4406-8e5a-6bfb138096ae
+
+		changedProperty = IsHidden
+
+	measure 'Forecast Variance' =
+			
+			[Total Actual] - [Total Forecast]
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Forecast
+		lineageTag: 44c8ec40-9149-47b8-b000-5afac4d56533
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Forecast Variance %' = DIVIDE([Forecast Variance],[Total Forecast],0)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Forecast
+		lineageTag: d10faa72-b690-45a3-9dfb-749faebfec94
+
+		changedProperty = IsHidden
+
+	measure 'Previous Period Actual' = CALCULATE([Total Actual], DATEADD('warehouse dimDate'[FullDate], -1, QUARTER))
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Reporting
+		lineageTag: 7c18b1ec-0b1a-4cca-aefa-baeb6a543ff0
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Actual Change' = [Total Actual] - [Previous Period Actual]
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Actuals
+		lineageTag: 8a4f04b1-3cee-4191-876c-e5c3efc1bf1b
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Actual Change %' = DIVIDE([Actual Change], [Previous Period Actual], 0)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Actuals
+		lineageTag: bd2ff1b6-f7a3-404c-b7fd-45235f1898f8
+
+		changedProperty = IsHidden
+
+	measure 'Reporting Period' = "Reporting Period: " & SELECTEDVALUE('warehouse dimDate'[QuarterName], "All Quarters") & ", " & SELECTEDVALUE('warehouse dimDate'[CalendarYear], "All Years")
+		displayFolder: Reporting
+		lineageTag: ac152340-ce2f-404e-9887-5034e7399ff0
+
+		changedProperty = IsHidden
+
+	measure 'YTD Actual' = TOTALYTD([Total Actual],'warehouse dimDate'[FullDate])
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Time Intelligence
+		lineageTag: d71a8fc7-6220-4099-a3cc-d98769fa268c
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'YTD Budget' = TOTALYTD([Total Budget], 'warehouse dimDate'[FullDate])
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Time Intelligence
+		lineageTag: 4e7e19cc-efbe-4469-9c70-7bb078a1095e
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'YTD Forecast' = TOTALYTD([Total Forecast], 'warehouse dimDate'[FullDate])
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Working Capital
+		lineageTag: 57f66cbf-e349-4903-8815-312b55cf9acc
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'YTD Budget Variance' = [YTD Actual] - [YTD Budget]
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Time Intelligence
+		lineageTag: b199abf8-540c-4916-9624-24c7f607033a
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'YTD Budget Variance %' = DIVIDE([YTD Budget Variance], [YTD Budget], 0)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Working Capital
+		lineageTag: d9bd9b74-6b8f-45a6-ab4f-ea2fbe1f4a1a
+
+		changedProperty = IsHidden
+
+	measure 'YTD Forecast Variance' = [YTD Actual] - [YTD Forecast]
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Working Capital
+		lineageTag: c9512807-2cf5-4fef-9f24-4b6a28363094
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'YTD Forecast Variance %' = DIVIDE([YTD Forecast Variance], [YTD Forecast], 0)
+		displayFolder: Working Capital
+		lineageTag: 359818e8-44d2-49cd-9306-4912b8c0afea
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Outstanding AP' =
+			
+			VAR CutoffKey = [Reporting Cutoff Key]
+			RETURN
+			    CALCULATE(
+			        SUM('warehouse factAccountsPayable'[Amount]),
+			        FILTER(
+			            ALL(
+			                'warehouse factAccountsPayable'[InvoiceDateKey],
+			                'warehouse factAccountsPayable'[PaidDateKey]
+			            ),
+			            'warehouse factAccountsPayable'[InvoiceDateKey] <= CutoffKey
+			                &&
+			                (
+			                    ISBLANK(
+			                        'warehouse factAccountsPayable'[PaidDateKey]
+			                    )
+			                    ||
+			                    'warehouse factAccountsPayable'[PaidDateKey] > CutoffKey
+			                )
+			        )
+			    )
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Working Capital
+		lineageTag: e61fceeb-808b-43cb-960f-ce8667dd3aa2
+
+		changedProperty = IsHidden
+
+	measure 'Outstanding AR' =
+			
+			VAR CutoffKey = [Reporting Cutoff Key]
+			RETURN
+			    CALCULATE(
+			        SUM('warehouse factAccountsReceivable'[Amount]),
+			        FILTER(
+			            ALL(
+			                'warehouse factAccountsReceivable'[InvoiceDateKey],
+			                'warehouse factAccountsReceivable'[ReceivedDateKey]
+			            ),
+			            'warehouse factAccountsReceivable'[InvoiceDateKey] <= CutoffKey
+			                &&
+			                (
+			                    ISBLANK(
+			                        'warehouse factAccountsReceivable'[ReceivedDateKey]
+			                    )
+			                    ||
+			                    'warehouse factAccountsReceivable'[ReceivedDateKey] > CutoffKey
+			                )
+			        )
+			    )
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Working Capital
+		lineageTag: 0b40b897-f94f-474a-9f44-2a3cc4a06040
+
+		changedProperty = IsHidden
+
+	measure 'Reporting Cutoff Date' =
+			
+			MAX(
+			    'warehouse dimDate'[FullDate]
+			)
+		formatString: General Date
+		displayFolder: Reporting
+		lineageTag: 7abbc8c1-b538-4dc5-8a9a-0d0477c6aae7
+
+		changedProperty = IsHidden
+
+	measure 'Overdue AR' =
+			
+			VAR CutoffDate = [Reporting Cutoff Date]
+			VAR CutoffKey = [Reporting Cutoff Key]
+			RETURN
+			    CALCULATE(
+			        SUM('warehouse factAccountsReceivable'[Amount]),
+			        FILTER(
+			            ALL(
+			                'warehouse factAccountsReceivable'[InvoiceDateKey],
+			                'warehouse factAccountsReceivable'[DueDateKey],
+			                'warehouse factAccountsReceivable'[ReceivedDateKey]
+			            ),
+			            'warehouse factAccountsReceivable'[InvoiceDateKey] <= CutoffKey
+			                && 'warehouse factAccountsReceivable'[DueDateKey] < CutoffKey
+			                && (
+			                    ISBLANK('warehouse factAccountsReceivable'[ReceivedDateKey])
+			                    || 'warehouse factAccountsReceivable'[ReceivedDateKey] > CutoffKey
+			                )
+			        )
+			    )
+		displayFolder: Working Capital
+		lineageTag: 9fe7c7eb-d6ff-446a-a7fe-27f3c3347f56
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'AP Due Next 30 Days' =
+			
+			VAR CutoffDate = [Reporting Cutoff Date]
+			VAR CutoffKey = [Reporting Cutoff Key]
+			VAR Next30Date = CutoffDate + 30
+			VAR Next30Key =
+			    YEAR(Next30Date) * 10000
+			        + MONTH(Next30Date) * 100
+			        + DAY(Next30Date)
+			RETURN
+			    CALCULATE(
+			        SUM('warehouse factAccountsPayable'[Amount]),
+			        FILTER(
+			            ALL(
+			                'warehouse factAccountsPayable'[InvoiceDateKey],
+			                'warehouse factAccountsPayable'[DueDateKey],
+			                'warehouse factAccountsPayable'[PaidDateKey]
+			            ),
+			            'warehouse factAccountsPayable'[InvoiceDateKey] <= CutoffKey
+			                && 'warehouse factAccountsPayable'[DueDateKey] > CutoffKey
+			                && 'warehouse factAccountsPayable'[DueDateKey] <= Next30Key
+			                && (
+			                    ISBLANK('warehouse factAccountsPayable'[PaidDateKey])
+			                    || 'warehouse factAccountsPayable'[PaidDateKey] > CutoffKey
+			                )
+			        )
+			    )
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Working Capital
+		lineageTag: b54a43e0-2654-4d4d-8631-5cf784f8e163
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Net AR/AP Position' =
+			
+			[Outstanding AR] - [Outstanding AP]
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Working Capital
+		lineageTag: fac31c78-21eb-479a-8351-e70fa4cc4ff9
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Overdue AR %' =
+			
+			DIVIDE(
+			    [Overdue AR],
+			    [Outstanding AR],
+			    0
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Working Capital
+		lineageTag: f3f8dbc3-cf6e-48bf-bdfb-adee2932df07
+
+		changedProperty = IsHidden
+
+	measure 'AR Due' =
+			
+			CALCULATE(
+			    SUM(
+			        'warehouse factAccountsReceivable'[Amount]
+			    ),
+			    KEEPFILTERS(
+			        'warehouse dimStatus'[StatusName]
+			            IN {
+			                "Open",
+			                "Partial"
+			            }
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: AR Aging
+		lineageTag: e42a3ddd-f9fc-4a93-85eb-66239711a2da
+
+		changedProperty = IsHidden
+
+	measure 'AR Aging Amount' =
+			
+			VAR CutoffDate =
+			    [Reporting Cutoff Date]
+			VAR CutoffKey =
+			    [Reporting Cutoff Key]
+			VAR SelectedBucket =
+			    SELECTEDVALUE('AR Aging Buckets'[Aging Bucket])
+			RETURN
+			    COALESCE(
+			        SUMX(
+			            FILTER(
+			                'warehouse factAccountsReceivable',
+			                'warehouse factAccountsReceivable'[InvoiceDateKey] <= CutoffKey
+			                    && (
+			                        ISBLANK(
+			                            'warehouse factAccountsReceivable'[ReceivedDateKey]
+			                        )
+			                            || 'warehouse factAccountsReceivable'[ReceivedDateKey] > CutoffKey
+			                    )
+			            ),
+			            VAR DueDateKey =
+			                'warehouse factAccountsReceivable'[DueDateKey]
+			            VAR DueDate =
+			                DATE(
+			                    INT(DueDateKey / 10000),
+			                    INT(MOD(DueDateKey, 10000) / 100),
+			                    MOD(DueDateKey, 100)
+			                )
+			            VAR DaysOverdue =
+			                DATEDIFF(
+			                    DueDate,
+			                    CutoffDate,
+			                    DAY
+			                )
+			            VAR IsInBucket =
+			                SWITCH(
+			                    TRUE(),
+			                    SelectedBucket = "Current"
+			                        && DaysOverdue <= 0, TRUE(),
+			
+			                    SelectedBucket = "1–30 Days"
+			                        && DaysOverdue >= 1
+			                        && DaysOverdue <= 30, TRUE(),
+			
+			                    SelectedBucket = "31–60 Days"
+			                        && DaysOverdue >= 31
+			                        && DaysOverdue <= 60, TRUE(),
+			
+			                    SelectedBucket = "61–90 Days"
+			                        && DaysOverdue >= 61
+			                        && DaysOverdue <= 90, TRUE(),
+			
+			                    SelectedBucket = "90+ Days"
+			                        && DaysOverdue >= 91, TRUE(),
+			
+			                    FALSE()
+			                )
+			            RETURN
+			                IF(
+			                    IsInBucket,
+			                    'warehouse factAccountsReceivable'[Amount],
+			                    0
+			                )
+			        ),
+			        0
+			    )
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: AR Aging
+		lineageTag: 7129e68d-2711-4cb8-a2bf-0b3c273f21e7
+
+		changedProperty = IsHidden
+
+	measure 'AR Aging %' =
+			
+			DIVIDE(
+			    [AR Aging Amount],
+			    [Outstanding AR],
+			    0
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: AR Aging
+		lineageTag: 3553566a-24b6-44f5-80a9-04ede2969169
+
+		changedProperty = IsHidden
+
+	measure 'Days Overdue' =
+			
+			VAR CutoffDate = [Reporting Cutoff Date]
+			VAR DueDateKey =
+			    SELECTEDVALUE(
+			        'warehouse factAccountsReceivable'[DueDateKey]
+			    )
+			VAR DueDate =
+			    IF(
+			        NOT ISBLANK(DueDateKey),
+			        DATE(
+			            INT(DueDateKey / 10000),
+			            INT(MOD(DueDateKey, 10000) / 100),
+			            MOD(DueDateKey, 100)
+			        )
+			    )
+			RETURN
+			    IF(
+			        NOT ISBLANK(DueDate),
+			        DATEDIFF(DueDate, CutoffDate, DAY)
+			    )
+		formatString: 0
+		displayFolder: AR Aging
+		lineageTag: b8f5db76-0c18-428b-b285-dc874ffa2772
+
+		changedProperty = IsHidden
+
+	measure 'AR Aging Label' =
+			
+			SWITCH(
+			    TRUE(),
+			    [Days Overdue] <= 0, "Current",
+			    [Days Overdue] <= 30, "1–30 Days",
+			    [Days Overdue] <= 60, "31–60 Days",
+			    [Days Overdue] <= 90, "61–90 Days",
+			    "90+ Days"
+			)
+		displayFolder: AR Aging
+		lineageTag: 906e9aab-9368-4afc-bbca-bf5a3d48ef78
+
+		changedProperty = IsHidden
+
+	measure 'GL Net Amount' =
+			
+			SUM(
+			    'warehouse factGeneralLedger'[Debit]
+			)
+			-
+			SUM(
+			    'warehouse factGeneralLedger'[Credit]
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: General Ledger
+		lineageTag: a1126649-9fcb-4015-b3b2-92bd069e2949
+
+		changedProperty = IsHidden
+
+	measure 'Total GL Debits' =
+			
+			SUM(
+			    'warehouse factGeneralLedger'[Debit]
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: General Ledger
+		lineageTag: fe46c784-7db7-42d5-9f4d-30f3dbc0e9f9
+
+		changedProperty = IsHidden
+
+	measure 'Total GL Credits' =
+			
+			SUM(
+			    'warehouse factGeneralLedger'[Credit]
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: General Ledger
+		lineageTag: 41f274e6-0eb5-4de6-8137-9da8e77e0231
+
+		changedProperty = IsHidden
+
+	measure 'GL Transactions' =
+			
+			COUNTROWS('warehouse factGeneralLedger')
+		formatString: #,0
+		displayFolder: General Ledger
+		lineageTag: 605f6cfe-9dbf-47d7-acc3-a15eb19c8ca7
+
+		changedProperty = IsHidden
+
+	measure 'Formatted Date' =
+			
+			FORMAT(MAX('warehouse dimDate'[FullDate]), "dd-MMM-yy")
+		displayFolder: Reporting
+		lineageTag: 2902db5f-bbcf-4827-97af-8e513529dc90
+
+		changedProperty = IsHidden
+
+	measure 'Forecast Accuracy %' =
+			
+			VAR ActualAmount =
+			    [Total Actual]
+			VAR ForecastAmount =
+			    [Total Forecast]
+			VAR AbsoluteForecastError =
+			    ABS(ActualAmount - ForecastAmount)
+			VAR Accuracy =
+			    1 -
+			    DIVIDE(
+			        AbsoluteForecastError,
+			        ABS(ActualAmount)
+			    )
+			RETURN
+			IF(
+			    NOT ISBLANK(ActualAmount)
+			        && NOT ISBLANK(ForecastAmount)
+			        && ActualAmount <> 0,
+			    MAX(0, Accuracy),
+			    BLANK()
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Forecast
+		lineageTag: af24d48d-bd67-44be-a96f-a9943be4ee4f
+
+		changedProperty = IsHidden
+
+	measure 'Reporting Cutoff Key' =
+			
+			VAR CutoffDate = [Reporting Cutoff Date]
+			RETURN
+			    YEAR(CutoffDate) * 10000
+			        + MONTH(CutoffDate) * 100
+			        + DAY(CutoffDate)
+		formatString: 0
+		displayFolder: Reporting
+		lineageTag: fd275425-9a2a-4a2f-b70a-9ef25c8486ba
+
+	measure 'Show Overdue AR Detail' =
+			
+			VAR CutoffKey = [Reporting Cutoff Key]
+			VAR InvoiceDateKey =
+			    SELECTEDVALUE(
+			        'warehouse factAccountsReceivable'[InvoiceDateKey]
+			    )
+			VAR DueDateKey =
+			    SELECTEDVALUE(
+			        'warehouse factAccountsReceivable'[DueDateKey]
+			    )
+			VAR ReceivedDateKey =
+			    SELECTEDVALUE(
+			        'warehouse factAccountsReceivable'[ReceivedDateKey]
+			    )
+			RETURN
+			    IF(
+			        NOT ISBLANK(InvoiceDateKey)
+			            && InvoiceDateKey <= CutoffKey
+			            && DueDateKey < CutoffKey
+			            && (
+			                ISBLANK(ReceivedDateKey)
+			                    || ReceivedDateKey > CutoffKey
+			            ),
+			        1,
+			        0
+			    )
+		formatString: 0
+		displayFolder: AR Aging
+		lineageTag: 35aa7b9c-ec40-4a4f-88e9-6feb772360e0
+
+	partition 'FP&A Measures' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlSKjQUA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Placeholder = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Placeholder", Int64.Type}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Placeholder"})
+				in
+				    #"Removed Columns"
+
+	changedProperty = Name
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,32 @@
+table 'warehouse dimCostCenter'
+	lineageTag: 2c24c0d7-7aa7-42fe-a0b8-88f467944c98
+
+	column CostCenterKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: b83f05bd-7bbd-462a-9157-c5a7437d4dfb
+		summarizeBy: none
+		sourceColumn: CostCenterKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CostCenterName
+		dataType: string
+		lineageTag: b536c383-2598-4ca5-bab1-2a6ae888cf9b
+		summarizeBy: none
+		sourceColumn: CostCenterName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'warehouse dimCostCenter' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost", "Northstar_FPnA"),
+				    warehouse_dimCostCenter = Source{[Schema="warehouse",Item="dimCostCenter"]}[Data]
+				in
+				    warehouse_dimCostCenter
+

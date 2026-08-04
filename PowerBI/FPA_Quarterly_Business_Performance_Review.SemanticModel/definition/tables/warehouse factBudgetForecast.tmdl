@@ -1,0 +1,96 @@
+table 'warehouse factBudgetForecast'
+	lineageTag: 94129ff3-b058-4948-8ba2-70529617a334
+
+	column FactBudgetForecastKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 446930ba-fe7a-4691-877a-3d2759488eec
+		summarizeBy: count
+		sourceColumn: FactBudgetForecastKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 6966a2f3-825e-4c4a-9444-1358c38f3f65
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DepartmentKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 4c0b8b3a-7476-4e2f-907e-66e9e3923bf2
+		summarizeBy: none
+		sourceColumn: DepartmentKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BudgetUSD
+		dataType: double
+		lineageTag: 7d4da2bc-e8d7-4587-806c-82c80ff7bfc3
+		summarizeBy: sum
+		sourceColumn: BudgetUSD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ForecastUSD
+		dataType: double
+		lineageTag: ec4d2d97-eeab-4e30-940f-40116c8eb27c
+		summarizeBy: sum
+		sourceColumn: ForecastUSD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ActualUSD
+		dataType: double
+		lineageTag: c37777ef-52dc-4866-afe6-4b3f405d1c08
+		summarizeBy: sum
+		sourceColumn: ActualUSD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VarianceUSD
+		dataType: double
+		lineageTag: 97e63db1-9ec8-47c4-8ee8-e13a0b49b1c0
+		summarizeBy: sum
+		sourceColumn: VarianceUSD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Notes
+		dataType: string
+		lineageTag: 4d639a6e-27ec-450a-81c1-d9d66bfb27a1
+		summarizeBy: none
+		sourceColumn: Notes
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'warehouse factBudgetForecast' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost", "Northstar_FPnA"),
+				    warehouse_factBudgetForecast = Source{[Schema="warehouse",Item="factBudgetForecast"]}[Data]
+				in
+				    warehouse_factBudgetForecast
+

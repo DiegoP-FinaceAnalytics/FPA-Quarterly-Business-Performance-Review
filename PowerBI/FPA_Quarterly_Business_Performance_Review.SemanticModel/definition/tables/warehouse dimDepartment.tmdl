@@ -1,0 +1,32 @@
+table 'warehouse dimDepartment'
+	lineageTag: 77ded43e-0c72-4ba0-9533-49d5bd7fc9a3
+
+	column DepartmentKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 4aa3ef8f-5c02-42ab-84cc-6e63946bbcef
+		summarizeBy: none
+		sourceColumn: DepartmentKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DepartmentName
+		dataType: string
+		lineageTag: 780f0512-4665-4146-8f04-1046e778cf1a
+		summarizeBy: none
+		sourceColumn: DepartmentName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'warehouse dimDepartment' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost", "Northstar_FPnA"),
+				    warehouse_dimDepartment = Source{[Schema="warehouse",Item="dimDepartment"]}[Data]
+				in
+				    warehouse_dimDepartment
+

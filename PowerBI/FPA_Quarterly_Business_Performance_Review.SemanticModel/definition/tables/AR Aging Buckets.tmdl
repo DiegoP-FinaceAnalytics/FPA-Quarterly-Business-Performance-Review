@@ -1,0 +1,39 @@
+table 'AR Aging Buckets'
+	lineageTag: 2dd454fe-e117-4ba7-9a0b-055f0d4afb55
+
+	column 'Aging Bucket'
+		lineageTag: 652b176a-22eb-46bb-a12a-3978ca9b20e9
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Aging Bucket]
+		sortByColumn: 'Sort Order'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sort Order'
+		formatString: 0
+		lineageTag: 171a5c33-6d39-431e-bc66-1e1a4aee575c
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Sort Order]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'AR Aging Buckets' = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				    "Aging Bucket", STRING,
+				    "Sort Order", INTEGER,
+				    {
+				        {"Current", 1},
+				        {"1–30 Days", 2},
+				        {"31–60 Days", 3},
+				        {"61–90 Days", 4},
+				        {"90+ Days", 5}
+				    }
+				)
+
+	annotation PBI_Id = bbe02d47a1324f37831d16df2c91b8b7
+

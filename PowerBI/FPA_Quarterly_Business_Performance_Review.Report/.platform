@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "FPA_Quarterly_Business_Performance_Review_ForReviewFinal"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "701eb8e3-4a65-4fa2-982a-805d955aadca"
+  }
+}

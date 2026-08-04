@@ -1,0 +1,32 @@
+table 'warehouse dimStatus'
+	lineageTag: bb39ca9f-0d53-436c-9cd2-9db2527fcae3
+
+	column StatusKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: c02c3a4b-0fc2-4984-ae5a-fcff9ae5192e
+		summarizeBy: none
+		sourceColumn: StatusKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column StatusName
+		dataType: string
+		lineageTag: ba0228cc-d7da-479d-94cf-bf2d64d32e79
+		summarizeBy: none
+		sourceColumn: StatusName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'warehouse dimStatus' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost", "Northstar_FPnA"),
+				    warehouse_dimStatus = Source{[Schema="warehouse",Item="dimStatus"]}[Data]
+				in
+				    warehouse_dimStatus
+

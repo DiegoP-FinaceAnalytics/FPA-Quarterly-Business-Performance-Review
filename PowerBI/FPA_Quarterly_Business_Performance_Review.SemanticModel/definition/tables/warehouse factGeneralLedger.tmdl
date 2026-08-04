@@ -1,0 +1,142 @@
+table 'warehouse factGeneralLedger'
+	lineageTag: 18008b6b-1b71-4987-b640-8cb52fa2b8d8
+
+	column FactGLKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 6c4ae49e-795a-4921-82d8-da14a1848a63
+		summarizeBy: count
+		sourceColumn: FactGLKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GLID
+		dataType: string
+		lineageTag: 730dba09-54c7-419e-8931-2bebcb391c03
+		summarizeBy: none
+		sourceColumn: GLID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 6b8cad4a-2ee0-4575-ba63-f3ce9d687e75
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 65329396-25da-447a-835c-885a0277c75e
+		summarizeBy: none
+		sourceColumn: AccountKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DepartmentKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: a3f01f3a-da54-4bf5-a8f8-2f8f15e927a3
+		summarizeBy: none
+		sourceColumn: DepartmentKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CostCenterKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 333cb1cf-3c99-4d00-90c3-50f7bf91a9da
+		summarizeBy: none
+		sourceColumn: CostCenterKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrencyKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 29cbbd75-cc97-4c6e-8ebc-50f1a42eb5d9
+		summarizeBy: none
+		sourceColumn: CurrencyKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Debit
+		dataType: double
+		lineageTag: c1037e4a-c79e-4dcd-866d-503faa0f8581
+		summarizeBy: sum
+		sourceColumn: Debit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Credit
+		dataType: double
+		lineageTag: 225b2931-a853-49d4-8b92-2065fa5d3028
+		summarizeBy: sum
+		sourceColumn: Credit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Description
+		dataType: string
+		lineageTag: af652026-b7d2-4d2d-be6d-cfdd4a3a32a4
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Transaction Date' =
+			
+			VAR DateNumber =
+			    'warehouse factGeneralLedger'[DateKey]
+			VAR YearNumber =
+			    INT(DateNumber / 10000)
+			VAR MonthNumber =
+			    INT(MOD(DateNumber, 10000) / 100)
+			VAR DayNumber =
+			    MOD(DateNumber, 100)
+			RETURN
+			    DATE(YearNumber, MonthNumber, DayNumber)
+		formatString: dd-mmm-yy
+		lineageTag: b369b747-ad59-425c-950b-de41d11ee89f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	partition 'warehouse factGeneralLedger' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost", "Northstar_FPnA"),
+				    warehouse_factGeneralLedger = Source{[Schema="warehouse",Item="factGeneralLedger"]}[Data]
+				in
+				    warehouse_factGeneralLedger
+
+	annotation PBI_ResultType = Table
+

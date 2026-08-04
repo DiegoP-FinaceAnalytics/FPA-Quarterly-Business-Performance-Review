@@ -1,0 +1,123 @@
+table 'warehouse factAccountsPayable'
+	lineageTag: f8e5e710-51cc-4403-a70a-fe4cfcaf6e43
+
+	column FactAPKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 55bc91ea-4a2d-493c-b989-49b37a7465d1
+		summarizeBy: count
+		sourceColumn: FactAPKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column APID
+		dataType: string
+		lineageTag: 7b31dfb4-1278-4afd-b591-a7035273745f
+		summarizeBy: none
+		sourceColumn: APID
+
+		annotation SummarizationSetBy = Automatic
+
+	column VendorKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: a47ac2ab-60f4-42c1-a455-d52230909a3e
+		summarizeBy: none
+		sourceColumn: VendorKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column InvoiceDateKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 22b48890-e43b-4740-b21a-cbf8222bf2d5
+		summarizeBy: count
+		sourceColumn: InvoiceDateKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DueDateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 2a5552c0-8694-456b-bc13-801812a78d6a
+		summarizeBy: count
+		sourceColumn: DueDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaidDateKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 16cc05fc-2ce7-476b-8ca5-9fd677ccdefe
+		summarizeBy: count
+		sourceColumn: PaidDateKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrencyKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: df4ddac4-a5b5-4a3b-b264-45333b380cd5
+		summarizeBy: none
+		sourceColumn: CurrencyKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column StatusKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: b4584da7-5c23-49bb-a239-f3586bd614a8
+		summarizeBy: none
+		sourceColumn: StatusKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TermsKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: c7a0fb74-a21c-41c5-964a-6707ad43a4f3
+		summarizeBy: none
+		sourceColumn: TermsKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Amount
+		dataType: double
+		lineageTag: 7e9ccc7d-9248-4a88-949f-946eb2d0d22b
+		summarizeBy: sum
+		sourceColumn: Amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'warehouse factAccountsPayable' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost", "Northstar_FPnA"),
+				    warehouse_factAccountsPayable = Source{[Schema="warehouse",Item="factAccountsPayable"]}[Data]
+				in
+				    warehouse_factAccountsPayable
+
