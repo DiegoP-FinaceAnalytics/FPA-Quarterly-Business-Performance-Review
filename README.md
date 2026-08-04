@@ -278,9 +278,6 @@ Finance Major | Business Analytics Minor
 - Power BI
 - Data Analytics
 
----
-
-> **Business problem first. Reliable data second. Analysis third. Communication always. Technology in service of all four.**
 
 ---
 
