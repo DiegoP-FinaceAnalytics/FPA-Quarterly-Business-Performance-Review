@@ -274,21 +274,6 @@ Potential future improvements include:
 
 ---
 
-# 👤 Author
+## AI-Assisted Development
 
-**Diego P.**
-
-Finance Major | Business Analytics Minor
-
-### Core Skills
-
-- Financial Planning & Analysis (FP&A)
-- Financial Analytics
-- SQL
-- Power BI
-- Business Intelligence
-- Data Analytics
-
----
-
-> **Business problem first. Reliable data second. Analysis third. Communication always. Technology in service of all four.**
+AI tools supported technical troubleshooting, SQL and DAX review, documentation development, and quality assurance throughout the project. Data-modeling decisions, financial KPI definitions, variance calculations, dashboard outputs, analytical findings, and management recommendations were reviewed and validated before inclusion.
