@@ -8,11 +8,11 @@
 
 # 📖 Executive Summary
 
-This project simulates a year-end **Financial Planning & Analysis (FP&A) Quarterly Business Performance Review** for **NorthStar Manufacturing Group**, a fictional manufacturing company.
+This project simulates an end-to-end **Financial Planning & Analysis (FP&A) Quarterly Business Performance Review** for **NorthStar Manufacturing Group**, a fictional manufacturing company.
 
-Following the close of **Fiscal Year 2025 (Q4 2025)**, executive leadership requested a comprehensive financial review to evaluate business performance, measure results against budget and forecast, assess working capital, and identify strategic priorities before finalizing the **FY2026 operating plan**.
+The analysis evaluates financial performance across **FY2024–FY2025**, with a focus on actual versus budget and forecast performance, departmental variances, working capital, Accounts Receivable and Accounts Payable activity, and General Ledger trends. The Power BI report allows users to analyze results by reporting period, including individual years and quarters such as **Q4 2025**.
 
-Rather than focusing only on dashboard development, this project demonstrates the complete analytics lifecycle—from raw financial data to executive decision-making using SQL Server and Power BI.
+Rather than focusing only on dashboard development, this project demonstrates the complete analytics lifecycle—from raw financial data through SQL Server data profiling, cleaning, validation, dimensional modeling, DAX-based financial analysis, interactive Power BI reporting, and evidence-based management recommendations.
 
 ---
 
@@ -23,7 +23,7 @@ Rather than focusing only on dashboard development, this project demonstrates th
 - Analyze departmental financial performance.
 - Assess Accounts Payable and Accounts Receivable activity.
 - Evaluate working capital trends.
-- Support executive decision-making for FY2026 planning.
+- Support executive performance review and forward planning.
 
 ---
 
@@ -35,7 +35,7 @@ This project answers the following business questions:
 - Which departments contributed most to budget and forecast variances?
 - How accurately did forecasts reflect actual performance?
 - Are working capital trends creating potential cash flow concerns?
-- What actions should management prioritize before FY2026?
+- What actions should management prioritize based on observed financial performance and working capital trends?
 
 ---
 
@@ -165,7 +165,7 @@ Examines General Ledger activity, account trends, transaction patterns, and oper
 
 ![Executive Outlook](Images/05_Executive_Outlook_Recommendations.png)
 
-Summarizes key findings, business risks, and management recommendations to support FY2026 planning.
+Summarizes key findings, business risks, and management recommendations to support forward planning and management decision-making.
 
 ---
 
@@ -184,7 +184,7 @@ Summarizes key findings, business risks, and management recommendations to suppo
 - Improve forecasting practices for Finance and IT.
 - Prioritize collection of overdue customer receivables.
 - Continue monitoring departmental spending against budget.
-- Review unusual General Ledger activity before FY2026 planning.
+- Review unusual General Ledger activity as part of ongoing financial monitoring and forward planning.
 - Maintain quarterly forecast reviews to support planning accuracy.
 
 ---
