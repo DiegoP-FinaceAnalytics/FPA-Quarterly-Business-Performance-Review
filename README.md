@@ -59,12 +59,13 @@ This project answers the following business questions:
 ```text
 FPA-Quarterly-Business-Performance-Review
 │
-├── Data
 ├── Documentation
-├── PowerBI
-├── Reports
+├── Executive Report
 ├── Images
+├── PowerBI
+├── Raw Data
 ├── SQL
+├── .gitignore
 ├── README.md
 └── LICENSE
 ```
@@ -119,7 +120,7 @@ The reporting environment is built on a **dimensional star schema** consisting o
 - **4 Fact Tables**
 - **9 Dimension Tables**
 
-The warehouse was designed to support scalable financial reporting, time intelligence, and executive analytics.
+The warehouse was designed to support structured financial reporting, time intelligence, and executive analytics.
 
 ![Star Schema](Images/NorthStar_Star_Schema.png)
 
@@ -175,7 +176,7 @@ Summarizes key findings, business risks, and management recommendations to suppo
 - Finance and IT recorded the largest unfavorable budget variances.
 - Forecast accuracy remained above **98%** throughout FY2025.
 - Working capital analysis identified a significant concentration of overdue receivables.
-- General Ledger activity revealed periods of notable net transaction fluctuations.
+- General Ledger analysis identified periods of material net transaction movement for further review.
 
 ---
 
@@ -184,7 +185,7 @@ Summarizes key findings, business risks, and management recommendations to suppo
 - Improve forecasting practices for Finance and IT.
 - Prioritize collection of overdue customer receivables.
 - Continue monitoring departmental spending against budget.
-- Review unusual General Ledger activity as part of ongoing financial monitoring and forward planning.
+- Review material General Ledger fluctuations as part of ongoing financial monitoring and forward planning.
 - Maintain quarterly forecast reviews to support planning accuracy.
 
 ---
