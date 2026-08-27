@@ -277,3 +277,9 @@ Potential future improvements include:
 ## AI-Assisted Development
 
 AI tools supported technical troubleshooting, SQL and DAX review, documentation development, and quality assurance throughout the project. Data-modeling decisions, financial KPI definitions, variance calculations, dashboard outputs, analytical findings, and management recommendations were reviewed and validated before inclusion.
+
+---
+
+## Disclaimer
+
+NorthStar Manufacturing Group is a fictional organization created for this portfolio project. The project uses sample financial data for educational and portfolio-demonstration purposes. The analysis does not represent the financial performance, budgets, forecasts, transactions, customers, vendors, operations, management decisions, or reporting practices of a real company.
