@@ -2,7 +2,7 @@
 
 > **An end-to-end Financial Planning & Analysis (FP&A) project demonstrating SQL Server, dimensional modeling, DAX, and Power BI through a realistic executive reporting scenario.**
 
-![Executive Overview](Screenshots/01_Executive_Overview.png)
+![Executive Overview](Images/01_Executive_Overview.png)
 
 ---
 
@@ -63,7 +63,7 @@ FPA-Quarterly-Business-Performance-Review
 ├── Documentation
 ├── PowerBI
 ├── Reports
-├── Screenshots
+├── Images
 ├── SQL
 ├── README.md
 └── LICENSE
@@ -121,7 +121,7 @@ The reporting environment is built on a **dimensional star schema** consisting o
 
 The warehouse was designed to support scalable financial reporting, time intelligence, and executive analytics.
 
-![Star Schema](Screenshots/Star_Schema.png)
+![Star Schema](Images/NorthStar_Star_Schema.png)
 
 ---
 
@@ -131,7 +131,7 @@ The Power BI report consists of **five interactive pages**, each designed to ans
 
 ## 1️⃣ Executive Overview
 
-![Executive Overview](Screenshots/01_Executive_Overview.png)
+![Executive Overview](Images/01_Executive_Overview.png)
 
 Provides a high-level summary of actual performance, budget performance, forecast variance, quarterly trends, and departmental comparisons.
 
@@ -139,7 +139,7 @@ Provides a high-level summary of actual performance, budget performance, forecas
 
 ## 2️⃣ Working Capital & Cash Flow Outlook
 
-![Working Capital](Screenshots/02_Working_Capital_Cash_Flow.png)
+![Working Capital](Images/02_Working_Capital_Cash_Flow.png)
 
 Evaluates Accounts Receivable, Accounts Payable, aging buckets, overdue balances, and short-term working capital performance.
 
@@ -147,7 +147,7 @@ Evaluates Accounts Receivable, Accounts Payable, aging buckets, overdue balances
 
 ## 3️⃣ Department Performance & Variance Analysis
 
-![Department Performance](Screenshots/03_Department_Performance_Variance.png)
+![Department Performance](Images/03_Department_Performance_Variance.png)
 
 Analyzes departmental budget performance, forecast comparisons, and identifies favorable and unfavorable variances.
 
@@ -155,7 +155,7 @@ Analyzes departmental budget performance, forecast comparisons, and identifies f
 
 ## 4️⃣ Financial Transaction Analysis
 
-![Financial Transaction Analysis](Screenshots/04_Financial_Transaction_Analysis.png)
+![Financial Transaction Analysis](Images/04_Financial_Transaction_Analysis.png)
 
 Examines General Ledger activity, account trends, transaction patterns, and operational financial activity.
 
@@ -163,7 +163,7 @@ Examines General Ledger activity, account trends, transaction patterns, and oper
 
 ## 5️⃣ Executive Outlook & Recommendations
 
-![Executive Outlook](Screenshots/05_Executive_Outlook_Recommendations.png)
+![Executive Outlook](Images/05_Executive_Outlook_Recommendations.png)
 
 Summarizes key findings, business risks, and management recommendations to support FY2026 planning.
 
@@ -193,7 +193,7 @@ Summarizes key findings, business risks, and management recommendations to suppo
 
 The Power BI semantic model uses one-to-many relationships between fact and dimension tables, enabling efficient filtering and interactive financial analysis.
 
-![Power BI Model](Screenshots/Model_View.png)
+![Power BI Model](Images/Model_View.png)
 
 ---
 
